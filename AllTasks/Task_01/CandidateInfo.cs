@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task_01
+﻿namespace Task_01
 {
     internal class CandidateInfo
     {
-        public Person PersonalInfo;
-        public SubjectScore[] SubjectScores;
+        public Person PersonalInfo { get; set; }
+        public SubjectScore[] SubjectScores { get; set; }
 
         public CandidateInfo(Person personalInfo, SubjectScore[] score)
         {
