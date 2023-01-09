@@ -17,7 +17,7 @@
             }
         }
 
-        public string SubjectName;
+        public string SubjectName { get; set; }
 
         public SubjectScore(int score, string subjectName)
         {

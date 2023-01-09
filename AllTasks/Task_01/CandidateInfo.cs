@@ -2,8 +2,8 @@
 {
     internal class CandidateInfo
     {
-        public Person PersonalInfo;
-        public SubjectScore[] SubjectScores;
+        public Person PersonalInfo { get; set; }
+        public SubjectScore[] SubjectScores { get; set; }
 
         public CandidateInfo(Person personalInfo, SubjectScore[] score)
         {
