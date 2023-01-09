@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task_02
+﻿namespace Task_02
 {
     internal class Teacher : UniversityEmployee
     {
-        public Course Course;
+        public Course Course { get; set; }
 
         public Teacher(Person personalInfo, int taxID, Course course): base(personalInfo, taxID)
         {
@@ -17,7 +11,8 @@ namespace Task_02
 
         public override void GetOfficialDuties()
         {
-            Console.WriteLine($"{PersonalInfo.FirstName} {PersonalInfo.LastName} specializes on {Course.Title}");
+            Console.WriteLine($"{PersonalInfo.FirstName} {PersonalInfo.LastName} " +
+                $"specializes on {Course.Title}");
         }
     }
 }

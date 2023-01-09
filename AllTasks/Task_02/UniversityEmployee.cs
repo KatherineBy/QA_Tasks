@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task_02
+﻿namespace Task_02
 {
     internal class UniversityEmployee
     {
-        public Person PersonalInfo;
-        public int TaxID;
+        public Person PersonalInfo { get; set; }
+        public int TaxID { get; set; }
 
         public UniversityEmployee(Person personalInfo, int taxID)
         {
@@ -19,7 +13,9 @@ namespace Task_02
 
         public virtual void GetOfficialDuties()
         {
-            Console.WriteLine("aaaa");
+            Console.WriteLine($"{PersonalInfo.FirstName} {PersonalInfo.LastName} " +
+                $"works in the university but has no duties yet");
         }
+
     }
 }
