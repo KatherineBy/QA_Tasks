@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_01
+namespace Task_02
 {
     internal class Course
     {
