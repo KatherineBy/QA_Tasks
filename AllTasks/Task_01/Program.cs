@@ -5,7 +5,9 @@ internal class Program
     private static void Main(string[] args)
     {
 
-        CandidateInfo candidate1 = new CandidateInfo(
+        const string SUBJECT = "Literature";
+
+        CandidateInfo candidate1 = new (
             new Person("Maxim", "Maximov",
                 new Address(160, 14, "Kurkowa", "Wroclaw")),
                     new SubjectScore[] {
@@ -16,7 +18,7 @@ internal class Program
                     });
 
 
-        CandidateInfo candidate2 = new CandidateInfo(
+        CandidateInfo candidate2 = new (
             new Person("Renat", "Renatov",
                 new Address(12, 5, "Wloska", "Warsaw")),
                     new SubjectScore[] {
@@ -26,7 +28,7 @@ internal class Program
                         new SubjectScore(20, "Language")
                     });
 
-        CandidateInfo candidate3 = new CandidateInfo(
+        CandidateInfo candidate3 = new (
             new Person("Mark", "Markov",
                 new Address(45, 67, "Minska", "Krakow")),
                     new SubjectScore[] {
@@ -36,7 +38,7 @@ internal class Program
                         new SubjectScore(67, "Language")
                     });
 
-        CandidateInfo candidate4 = new CandidateInfo(
+        CandidateInfo candidate4 = new (
             new Person("Oleg", "Olegov",
                 new Address(10, 3, "Swobodna", "Poznan")),
                     new SubjectScore[] {
@@ -46,7 +48,7 @@ internal class Program
                         new SubjectScore(60, "Language")
                     });
 
-        CandidateInfo candidate5 = new CandidateInfo(
+        CandidateInfo candidate5 = new (
             new Person("Petr", "Petrov",
                 new Address(45, 46, "Witolda", "Gdansk")),
                     new SubjectScore[] {
@@ -68,18 +70,21 @@ internal class Program
         }
 
 
-        // to show max on Math
+        // to show max mark on SUBJECT
 
-        int maxMath = candidate1.SubjectScores[0].Score;
+        int maxMark = -1;
         foreach (CandidateInfo candidate in CandidatesList)
         {
-            if (candidate.SubjectScores[0].Score > maxMath)
+            foreach (var item in candidate.SubjectScores)
             {
-                maxMath = candidate.SubjectScores[0].Score;
+                if (item.SubjectName == SUBJECT && item.Score > maxMark)
+                {
+                    maxMark = item.Score;
+                }
             }
-        }
-
-        Console.WriteLine($"The highest mark on Math is {maxMath}");
+        }    
+        
+        Console.WriteLine($"The highest mark on {SUBJECT} is {maxMark}");
 
     }
 }

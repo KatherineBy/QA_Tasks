@@ -1,15 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task_01
+﻿namespace Task_01
 {
     internal class Address
     {
-        public int Apartment;
-        public int Building;
+
+        private int _apartment;
+        public int Apartment 
+        { 
+            get 
+            { 
+                return _apartment; 
+            } 
+
+            set 
+            { 
+                if(value > 0)
+                    _apartment = value; 
+            } 
+        }
+
+        private int _building;
+        public int Building 
+        {
+            get 
+            { 
+                return _building;
+            }
+            set
+            { 
+                if(value > 0)
+                    _building = value;
+            }
+        }
+                
         public string Street;
         public string City;
 
