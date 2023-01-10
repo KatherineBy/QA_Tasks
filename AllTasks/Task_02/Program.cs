@@ -6,28 +6,28 @@ internal class Program
     { 
         UniversityEmployee employee1 = new Teacher(
             new Person("Vasiliy", "Vasiliyev",
-                new Address(1, 1, "D", "D")),
+                new Address(1, 1, "Pobediteley", "Minsk")),
                     13547622,
-                        new Course("Math", "Studying calculations etc."));
+                        new Course("Higher Mathematics", "Studying complex calculations etc."));
 
         UniversityEmployee employee2 = new DegreeTeacher(
             new Person("Dmitry", "Dmitriyev",
-                new Address(1, 1, "D", "D")),
+                new Address(34, 2, "Nebesnaya", "Minsk")),
                     60937564,
-                        new Course("Math", "Studying calculations etc."),
+                        new Course("History", "Studying history etc."),
                             "Doctor", "Professor");
 
         UniversityEmployee employee3 = new SupportStaff(
             new Person("Olga", "Olgova",
-                new Address(1, 1, "D", "D")),
+                new Address(45, 3, "Vaneeva", "Minsk")),
                     75639562,
                        "Cleaning");
 
         UniversityEmployee employee4 = new DegreeTeacher(
-            new Person("Dmitry", "Dmitriyev",
-                new Address(1, 1, "D", "D")),
+            new Person("Anton", "Antonov",
+                new Address(5, 4, "Miastrowskaya", "Brest")),
                     60937564,
-                        new Course("Economics", "Economics etc"),
+                        new Course("Economics", "studying economics etc"),
                             "Master", "Assistant professor");
 
         UniversityEmployee[] EmployeeList = 
@@ -41,7 +41,7 @@ internal class Program
         
         // to show all employees and their duties
 
-        Console.WriteLine("The following is a list of all the university employees:");
+        Console.WriteLine("The following is a list of all employees:");
 
         foreach (UniversityEmployee employee in EmployeeList)
         {
@@ -53,7 +53,7 @@ internal class Program
         
         // to show teachers
 
-        Console.WriteLine("The following is a list of all the university teachers:");
+        Console.WriteLine("The following is a list of all teachers:");
 
         foreach (UniversityEmployee employee in EmployeeList) 
         { 
