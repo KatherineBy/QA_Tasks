@@ -2,7 +2,7 @@
 {
     internal abstract class Asset
     {
-        public string Title { get; }
+        public string Title { get; set; }
 
         public Asset(string title) 
         { 
