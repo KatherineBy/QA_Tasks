@@ -1,6 +1,4 @@
-﻿using System.Net.Sockets;
-
-namespace Task_03
+﻿namespace Task_03
 {
     internal class Building: Asset
     {
@@ -8,10 +6,10 @@ namespace Task_03
         public Address Adress { get; set; }
         public Room[] Rooms { get; set; }
 
-        public Building(string inventoryNumber, string title, Address adress, Room[] rooms)
+        public Building(string title, string inventoryNumber, Address adress, Room[] rooms)
+            : base(title)
         {
             InventoryNumber = inventoryNumber;
-            Title = title;
             Adress = adress;
             Rooms = rooms;
         }

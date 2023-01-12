@@ -2,6 +2,11 @@
 {
     internal abstract class Asset
     {
-        public abstract string Title { get; }
+        public string Title { get; }
+
+        public Asset(string title) 
+        { 
+            Title = title;
+        }
     }
 }

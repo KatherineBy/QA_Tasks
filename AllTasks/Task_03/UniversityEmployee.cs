@@ -6,5 +6,11 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        public UniversityEmployee (string personnelNumber, string firstName, string lastName)
+        {
+            PersonnelNumber = personnelNumber;
+            FirstName = firstName;
+            LastName = lastName;
+        }
     }
 }
