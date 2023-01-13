@@ -4,15 +4,15 @@
     {
         public Course Course { get; set; }
 
-        public Teacher(Person personalInfo, int taxID, Course course): base(personalInfo, taxID)
+        public Teacher(Person personalInfo, int taxId, Course course): base(personalInfo, taxId)
         {
             Course = course;
         }
 
-        public override void GetOfficialDuties()
+        public override string GetOfficialDuties()
         {
-            Console.WriteLine($"{PersonalInfo.FirstName} {PersonalInfo.LastName} " +
-                $"specializes on {Course.Title}");
+            return $"{PersonalInfo.FirstName} {PersonalInfo.LastName} " +
+                $"specializes on {Course.Title}";
         }
     }
 }

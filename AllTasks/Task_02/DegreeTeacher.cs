@@ -5,19 +5,19 @@
         public string AcademicDegree { get; set; }
         public string AcademicTitle { get; set; }
 
-        public DegreeTeacher(Person personalInfo, int taxID, 
+        public DegreeTeacher(Person personalInfo, int taxId, 
             Course course, string academicDegree, string academicTitle) : 
-            base(personalInfo, taxID, course)
+            base(personalInfo, taxId, course)
         {
             AcademicDegree= academicDegree;
             AcademicTitle= academicTitle;
         }
-        public override void GetOfficialDuties()
+        public override string GetOfficialDuties()
         {
-            Console.WriteLine($"{PersonalInfo.FirstName} {PersonalInfo.LastName}," + 
+            return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}," + 
                 $"specializes on {Course.Title}, " +
                 $"has the following academic degree: {AcademicDegree}, " +
-                $"and the following academic title: {AcademicTitle}");
+                $"and the following academic title: {AcademicTitle}";
         }
     }
 }

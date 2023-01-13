@@ -4,16 +4,16 @@
     {
         public string JobResponsibilities { get; set; }
 
-        public SupportStaff(Person personalInfo, int taxID, string jobResponsibilities): 
-            base(personalInfo, taxID) 
+        public SupportStaff(Person personalInfo, int taxId, string jobResponsibilities): 
+            base(personalInfo, taxId) 
         { 
             JobResponsibilities= jobResponsibilities;
         }
 
-        public override void GetOfficialDuties()
+        public override string GetOfficialDuties()
         {
-            Console.WriteLine($"{PersonalInfo.FirstName} {PersonalInfo.LastName}," +
-                $" has the following responsibilities: {JobResponsibilities}");
+            return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}," +
+                $" has the following responsibilities: {JobResponsibilities}";
         }
     }
 }

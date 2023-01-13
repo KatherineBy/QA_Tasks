@@ -4,31 +4,33 @@ internal class Program
 {
     private static void Main(string[] args) 
     { 
-        UniversityEmployee employee1 = new Teacher(
-            new Person("Vasiliy", "Vasiliyev",
-                new Address(1, 1, "Pobediteley", "Minsk")),
-                    13547622,
-                        new Course("Higher Mathematics", "Studying complex calculations etc."));
+        var employee1 = new Teacher(
+            new("Vasiliy", "Vasiliyev",
+                new(1, 1, "Pobediteley", "Minsk")),
+            13547622,
+            new("Higher Mathematics", "Studying complex calculations etc."));
 
-        UniversityEmployee employee2 = new DegreeTeacher(
-            new Person("Dmitry", "Dmitriyev",
-                new Address(34, 2, "Nebesnaya", "Minsk")),
-                    60937564,
-                        new Course("History", "Studying history etc."),
-                            "Doctor", "Professor");
+        var employee2 = new DegreeTeacher(
+            new("Dmitry", "Dmitriyev",
+                new(34, 2, "Nebesnaya", "Minsk")),
+            60937564,
+            new("History", "Studying history etc."),
+            "Doctor", 
+            "Professor");
 
-        UniversityEmployee employee3 = new SupportStaff(
-            new Person("Olga", "Olgova",
-                new Address(45, 3, "Vaneeva", "Minsk")),
-                    75639562,
-                       "Cleaning");
+        var employee3 = new SupportStaff(
+            new("Oleg", "Olegov",
+                new(45, 3, "Vaneeva", "Minsk")),
+            75639562,
+            "Cleaning");
 
-        UniversityEmployee employee4 = new DegreeTeacher(
-            new Person("Anton", "Antonov",
-                new Address(5, 4, "Miastrowskaya", "Brest")),
-                    60937564,
-                        new Course("Economics", "studying economics etc"),
-                            "Master", "Assistant professor");
+        var employee4 = new DegreeTeacher(
+            new("Anton", "Antonov",
+                new(5, 4, "Miastrowskaya", "Brest")),
+            60937564,
+            new ("Economics", "studying economics etc"),
+            "Master", 
+            "Assistant professor");
 
         UniversityEmployee[] EmployeeList = 
         { 
@@ -45,7 +47,7 @@ internal class Program
 
         foreach (UniversityEmployee employee in EmployeeList)
         {
-            employee.GetOfficialDuties();
+            Console.WriteLine(employee.GetOfficialDuties());
         }
 
         Console.WriteLine("--------------------------------");
@@ -57,9 +59,9 @@ internal class Program
 
         foreach (UniversityEmployee employee in EmployeeList) 
         { 
-            if (employee is Teacher | employee is DegreeTeacher) 
+            if (employee is Teacher) 
             {
-                employee.GetOfficialDuties();
+                Console.WriteLine(employee.GetOfficialDuties());
             }
         }
 

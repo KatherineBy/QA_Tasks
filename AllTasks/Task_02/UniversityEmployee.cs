@@ -1,21 +1,17 @@
 ﻿namespace Task_02
 {
-    internal class UniversityEmployee
+    internal abstract class UniversityEmployee
     {
         public Person PersonalInfo { get; set; }
-        public int TaxID { get; set; }
+        public int TaxId { get; set; }
 
         public UniversityEmployee(Person personalInfo, int taxID)
         {
             PersonalInfo = personalInfo;
-            TaxID = taxID;
+            TaxId = taxID;
         }
 
-        public virtual void GetOfficialDuties()
-        {
-            Console.WriteLine($"{PersonalInfo.FirstName} {PersonalInfo.LastName} " +
-                $"works in the university but has no duties yet");
-        }
-
+        public abstract string GetOfficialDuties();
+        
     }
 }
