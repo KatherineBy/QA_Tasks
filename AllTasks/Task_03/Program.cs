@@ -7,13 +7,13 @@ internal class Program
     {
         //create employees list
 
-        UniversityEmployee employee1 = new Teacher(
+        var employee1 = new Teacher(
            "N000000001", "Vasiliy", "Vasiliyev", "Higher Mathematics", "Doctor", "Professor");
 
-        UniversityEmployee employee2 = new Teacher(
+        var employee2 = new Teacher(
             "N000000002", "Dmitry", "Dmitriyev", "History", "Master", "Assistant professor");
             
-        Rector rector = new Rector(
+        var rector = new Rector(
             "N000000003", "Anton", "Antonov", "Doctor", "Professor");
        
 
@@ -26,38 +26,44 @@ internal class Program
 
         //create buildings list
 
-        Building building1 = new("Main Building", "I000001",
-            new Address("Minsk", "Vaneeva", 27),
-                new Room[]
-                {
-                    new Room(101, 1, "Lecture Hall"),
-                    new Room(102, 1, "Lecture Hall"),
-                    new Room(103, 1, "Utility Room"),
-                    new Room(201, 2, "Laboratory"),
-                    new Room(202, 2, "Classroom")
-                });
+        Building building1 = new(
+            "Main Building", 
+            "I000001",
+            new ("Minsk", "Vaneeva", 27),
+            new Room[]
+            {
+                new(101, 1, "Lecture Hall"),
+                new(102, 1, "Lecture Hall"),
+                new(103, 1, "Utility Room"),
+                new(201, 2, "Laboratory"),
+                new(202, 2, "Classroom")
+            });
 
-        Building building2 = new("Academic Building N2", "I000002",
-            new Address("Minsk", "Vaneeva", 28),
-                new Room[]
-                {
-                    new Room(101, 1, "Classroom"),
-                    new Room(102, 1, "Classroom"),
-                    new Room(201, 2, "Classroom"),
-                    new Room(202, 2, "Classroom"),
-                    new Room(301, 1, "Rectorate")
-                });
+        Building building2 = new(
+            "Academic Building N2", 
+            "I000002",
+            new("Minsk", "Vaneeva", 28),
+            new Room[]
+            {
+                new(101, 1, "Classroom"),
+                new(102, 1, "Classroom"),
+                new(201, 2, "Classroom"),
+                new(202, 2, "Classroom"),
+                new(301, 1, "Rectorate")
+            });
 
-        Building building3 = new("Academic Building N3", "I000003",
+        Building building3 = new(
+            "Academic Building N3", 
+            "I000003",
             new Address("Minsk", "Vaneeva", 30),
-                new Room[]
-                {
-                    new Room(201, 2, "Lecture Hall"),
-                    new Room(202, 2, "Lecture Hall"),
-                    new Room(203, 2, "Classroom"),
-                    new Room(204, 2, "Classroom"),
-                    new Room(205, 2, "Laboratory")
-                });
+            new Room[]
+            {
+                new(201, 2, "Lecture Hall"),
+                new(202, 2, "Lecture Hall"),
+                new(203, 2, "Classroom"),
+                new(204, 2, "Classroom"),
+                new(205, 2, "Laboratory")
+            });
 
         Building[] buildingList =
        {
