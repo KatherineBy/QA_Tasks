@@ -40,5 +40,18 @@
             Floor = floor;
             Purpose = purpose;
         }
+
+        public override bool Equals(object item)
+        {
+            if (item is Room)
+            {
+                Room check = (Room)item;
+                return check.Number == this.Number;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -26,5 +26,23 @@
             Street = street;
             Number = number;
         }
+
+        public override string ToString() 
+        { 
+            return $"{this.City}, {this.Street}, {this.Number}";
+        }
+
+        public override bool Equals(object item) 
+        { 
+            if (item is Address)
+            { 
+                Address check = (Address)item;
+                return check.ToString() == this.ToString(); 
+            }
+            else 
+            {
+                return false;
+            }
+        }
     }
 }

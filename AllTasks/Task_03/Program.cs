@@ -17,7 +17,7 @@ internal class Program
             "N000000003", "Anton", "Antonov", "Doctor", "Professor");
        
 
-        UniversityEmployee[] employeeList =
+        List<UniversityEmployee> employeeList = new List<UniversityEmployee>
         {
             employee1,
             employee2,
@@ -30,7 +30,7 @@ internal class Program
             "Main Building", 
             "I000001",
             new ("Minsk", "Vaneeva", 27),
-            new Room[]
+            new List<Room>
             {
                 new(101, 1, "Lecture Hall"),
                 new(102, 1, "Lecture Hall"),
@@ -43,7 +43,7 @@ internal class Program
             "Academic Building N2", 
             "I000002",
             new("Minsk", "Vaneeva", 28),
-            new Room[]
+            new List<Room>
             {
                 new(101, 1, "Classroom"),
                 new(102, 1, "Classroom"),
@@ -56,7 +56,7 @@ internal class Program
             "Academic Building N3", 
             "I000003",
             new Address("Minsk", "Vaneeva", 30),
-            new Room[]
+            new List<Room>
             {
                 new(201, 2, "Lecture Hall"),
                 new(202, 2, "Lecture Hall"),
@@ -65,7 +65,7 @@ internal class Program
                 new(205, 2, "Laboratory")
             });
 
-        Building[] buildingList =
+        List<Building> buildingList = new List<Building>
        {
             building1,
             building2,
@@ -79,6 +79,27 @@ internal class Program
             new LegalAddress("220-051", "Minsk", "Vaneeva", 27),
             employeeList,
             buildingList);
-     
+
+        //Teacher ad1 = new("1", "f", "d", "f", "g", "f");
+        //Teacher ad2 = new("1", "f", "d", "f", "g", "f");
+
+        //Console.WriteLine(building1.ToString());
+        //bool result = ad1.Equals(ad2);
+        //Console.WriteLine(result);
+
+        Building building4 = new(
+            "Academic Building N3",
+            "I000003",
+            new Address("Minsk", "Vaneeva", 30),
+            new List<Room>
+            {
+                new(201, 2, "Lecture Hall"),
+                new(202, 2, "Lecture Hall"),
+                new(203, 2, "Classroom"),
+                new(204, 2, "Classroom"),
+                new(205, 2, "Laboratory")
+            });
+
+        university.AddObject(building4, buildingList);
     }
 }

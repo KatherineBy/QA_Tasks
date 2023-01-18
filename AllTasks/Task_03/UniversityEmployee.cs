@@ -1,4 +1,6 @@
-﻿namespace Task_03
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace Task_03
 {
     internal class UniversityEmployee
     {
@@ -12,5 +14,19 @@
             FirstName = firstName;
             LastName = lastName;
         }
+                
+        public override bool Equals(object item)
+        {
+            if (item is UniversityEmployee)
+            {
+                UniversityEmployee check = (UniversityEmployee)item;
+                return check.PersonnelNumber == this.PersonnelNumber;
+            }
+            else
+            {
+                return false;
+            }
+        }
+              
     }
 }
