@@ -2,7 +2,7 @@
 
 namespace Task_03
 {
-    internal class UniversityEmployee
+    internal abstract class UniversityEmployee
     {
         public string PersonnelNumber { get; set; }
         public string FirstName { get; set; }
@@ -14,7 +14,9 @@ namespace Task_03
             FirstName = firstName;
             LastName = lastName;
         }
-                
+
+        public abstract string GetOfficialDuties();
+
         public override bool Equals(object item)
         {
             if (item is UniversityEmployee)
