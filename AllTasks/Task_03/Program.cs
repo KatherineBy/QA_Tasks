@@ -1,5 +1,4 @@
-﻿using System;
-using Task_03;
+﻿using Task_03;
 
 internal class Program
 {
@@ -79,27 +78,6 @@ internal class Program
             new LegalAddress("220-051", "Minsk", "Vaneeva", 27),
             employeeList,
             buildingList);
-
-        //Teacher ad1 = new("1", "f", "d", "f", "g", "f");
-        //Teacher ad2 = new("1", "f", "d", "f", "g", "f");
-
-        //Console.WriteLine(building1.ToString());
-        //bool result = ad1.Equals(ad2);
-        //Console.WriteLine(result);
-
-        Building building4 = new(
-            "Academic Building N3",
-            "I000003",
-            new Address("Minsk", "Vaneeva", 30),
-            new List<Room>
-            {
-                new(201, 2, "Lecture Hall"),
-                new(202, 2, "Lecture Hall"),
-                new(203, 2, "Classroom"),
-                new(204, 2, "Classroom"),
-                new(205, 2, "Laboratory")
-            });
-
-        university.AddObject(building4, buildingList);
+                
     }
 }
