@@ -43,15 +43,11 @@
 
         public override bool Equals(object item)
         {
-            if (item is Room)
-            {
-                Room check = (Room)item;
-                return check.Number == this.Number;
-            }
-            else
-            {
-                return false;
-            }
+            if (item == null || item.GetType() == this.GetType()) return false;
+            
+            Room check = (Room)item;
+            
+            return check.Number == this.Number;     
         }
     }
 }

@@ -4,8 +4,7 @@ using System.Net.NetworkInformation;
 namespace Task_03
 {
     internal class University
-    {
-        
+    {      
         public Rector Rector { get; set; }
         public LegalAddress LegalAddress { get; set; }
         public List<UniversityEmployee> Employees { get; set; }
@@ -18,20 +17,31 @@ namespace Task_03
             LegalAddress = legalAddress;
             Rector = rector;
             Buildings = buildings;
-        }
-
-        
-        public void AddObject<T>(T newItem, List<T> items) 
+        }       
+        public void AddEmployee(UniversityEmployee newEmployee, List<UniversityEmployee> employees) 
         {
-            foreach (T item in items)
+            foreach (UniversityEmployee item in employees)
             {
-                if (item.Equals(newItem))
+                if (item.Equals(newEmployee))
                 {
                     return;
                 }
             }
             
-            items.Add(newItem);
+            employees.Add(newEmployee);
         }
+        public void AddBuilding(Building newBuilding, List<Building>buildings)
+        {
+            foreach (Building item in buildings)
+            {
+                if (item.Equals(newBuilding))
+                {
+                    return;
+                }
+            }
+
+            buildings.Add(newBuilding);
+        }
+
     }
 }

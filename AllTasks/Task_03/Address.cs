@@ -33,16 +33,15 @@
         }
 
         public override bool Equals(object item) 
-        { 
-            if (item is Address)
-            { 
-                Address check = (Address)item;
-                return check.ToString() == this.ToString(); 
-            }
-            else 
-            {
-                return false;
-            }
+        {
+            if (item == null || item.GetType() != this.GetType()) return false;
+            
+            Address check = (Address)item;
+            
+            return 
+                check.City == this.City && 
+                check.Street == this.Street && 
+                check.Number == this.Number;    
         }
     }
 }

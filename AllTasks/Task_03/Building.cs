@@ -21,15 +21,11 @@
 
         public override bool Equals(object item)
         {
-            if (item is Building)
-            {
-                Building check = (Building)item;
-                return check.ToString() == this.ToString();
-            }
-            else
-            {
-                return false;
-            }
+            if (item == null || item.GetType() != typeof(Building)) return false;
+            
+            Building check = (Building)item;
+
+            return check.InventoryNumber == this.InventoryNumber;
         }
     }
 }

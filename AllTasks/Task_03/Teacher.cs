@@ -24,5 +24,14 @@ namespace Task_03
                 $"has an academic degree: {AcademicDegree}, " +
                 $"and an academic title: {AcademicTitle}";
         }
+
+        public override bool Equals(object item)
+        {
+            if (item == null || item.GetType() == this.GetType()) return false;
+
+            Teacher check = (Teacher)item;
+
+            return check.PersonnelNumber == this.PersonnelNumber;
+        }
     }
 }

@@ -19,15 +19,11 @@ namespace Task_03
 
         public override bool Equals(object item)
         {
-            if (item is UniversityEmployee)
-            {
-                UniversityEmployee check = (UniversityEmployee)item;
-                return check.PersonnelNumber == this.PersonnelNumber;
-            }
-            else
-            {
-                return false;
-            }
+            if (item == null || item.GetType() == this.GetType()) return false;
+            
+            UniversityEmployee check = (UniversityEmployee)item;
+
+            return check.PersonnelNumber == this.PersonnelNumber;
         }
               
     }

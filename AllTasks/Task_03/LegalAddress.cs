@@ -17,15 +17,9 @@
 
         public override bool Equals(object item)
         {
-            if (item is Address)
-            {
-                Address check = (Address)item;
-                return check.ToString() == this.ToString();
-            }
-            else
-            {
-                return false;
-            }
+            if (item == null) return false;
+            
+            return base.Equals(item) && (item as LegalAddress)?.Index == this.Index;          
         }
     }
 }

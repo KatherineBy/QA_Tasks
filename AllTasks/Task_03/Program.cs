@@ -81,7 +81,8 @@ internal class Program
                 new(102, 1, "Classroom"),
                 new(201, 2, "Classroom"),
                 new(202, 2, "Classroom"),
-                new(301, 1, "Rectorate")
+                new(301, 3, "Rectorate"),
+                new(302, 3, "Classroom")
             });
 
         Building building3 = new(
@@ -114,27 +115,29 @@ internal class Program
             employeeList,
             buildingList);
 
-       
+        Console.WriteLine("5.1 --------------------------------------------------------------");
+
         // 5.1 employyes with last name starts with X
 
         string selectedLetter = "A";
-        var employeesOnSelectedLetter = 
-            university.Employees.Where(x => x.LastName.StartsWith(selectedLetter)).ToList();
+        var employeesOnSelectedLetter = university.Employees
+            .Where(x => x.LastName.StartsWith(selectedLetter))
+            .ToList();
 
         foreach(var item in employeesOnSelectedLetter) 
         {
             Console.WriteLine("Employee {0} {1}, personnel number {2}", 
                 item.LastName, item.FirstName, item.PersonnelNumber);
         }
-        Console.WriteLine("----------------------------------------------------------------");
+        Console.WriteLine("5.2 --------------------------------------------------------------");
 
         // 5.2 teachers of X course
 
         string selectedCourse = "Higher Mathematics";
-        var teachersOfSelectedCourse = 
-            university.Employees.OfType<Teacher>()
-                                .Where(x => x.Course.Title == selectedCourse)
-                                .ToList();
+        var teachersOfSelectedCourse = university.Employees
+            .OfType<Teacher>()
+            .Where(x => x.Course.Title == selectedCourse)
+            .ToList();
         
 
         foreach (var item in teachersOfSelectedCourse)
@@ -142,58 +145,60 @@ internal class Program
             Console.WriteLine("Employee {0} {1}, personnel number {2}, course {3}",
                 item.LastName, item.FirstName, item.PersonnelNumber, item.Course.Title);
         }
-        Console.WriteLine("----------------------------------------------------------------");
+        Console.WriteLine("5.3 --------------------------------------------------------------");
 
         // 5.3 personnel number and professional duties 
 
-        var persNumberAndDuties = 
-            university.Employees.Select(x => (x.PersonnelNumber, x.GetOfficialDuties())).ToList();
+        var persNumberAndDuties = university.Employees
+            .Select(x => (num: x.PersonnelNumber, duty: x.GetOfficialDuties()))
+            .ToList();
 
         foreach (var item in persNumberAndDuties)
         {
             Console.WriteLine("Personnel Number {0}, official duties: {1}",
-                item.Item1, item.Item2);
+                item.num, item.duty);
         }
-        Console.WriteLine("----------------------------------------------------------------");
+        Console.WriteLine("5.4 --------------------------------------------------------------");
 
         // 5.4 buildings with selected room.number
 
         int selectedRoomNumber = 101;
-        var buildingsWithRoom = university.Buildings.SelectMany(x => x.Rooms,
-                            (x, y) => new { Building = x, Room = y })
-                            .Where(x => x.Room.Number == selectedRoomNumber)
-                            .Select(x => x.Building)
-                            .ToList();
+        var buildingsWithRoom = university.Buildings
+            .SelectMany(x => x.Rooms,(x, y) => (Addr: x.Address, RoomNum: y.Number))
+            .Where(x => x.RoomNum == selectedRoomNumber)
+            .Select(x => x.Addr)
+            .ToList();
 
         foreach(var item in buildingsWithRoom) 
         {
-            Console.WriteLine($"Address: {item.Address}");
+            Console.WriteLine($"Address: {item}");
         }
-        Console.WriteLine("----------------------------------------------------------------");
+        Console.WriteLine("5.5 --------------------------------------------------------------");
 
         // 5.5 building with max amount of rooms
 
-        var buildingWithMaxRooms =
-            university.Buildings.Select(x => (x.Address, x.Rooms.Count))
-                                .Where(x => x.Count == university.Buildings.Max(x => x.Rooms.Count))
-                                .ToList();
-
+        var buildingWithMaxRooms = university.Buildings
+            .Select(x => (x.Address, cnt: x.Rooms.Count))
+            .GroupBy(x => x.cnt)
+            .MaxBy(x => x.Key);
+                    
         foreach (var item in buildingWithMaxRooms) 
         {
             Console.WriteLine($"Address: {item.Address}");
         }
-        Console.WriteLine("----------------------------------------------------------------");
+        Console.WriteLine("5.6 --------------------------------------------------------------");
 
         // 5.6 the most popular last name + count
 
-        var mostPopularLastName =
-            university.Employees.GroupBy(x => x.LastName)
-                                .Select(x => new { Name = x.Key, Count = x.Count() })
-                                .MaxBy(x => x.Count);
+        var mostPopularLastName = university.Employees
+            .GroupBy(x => x.LastName)
+            .Select(x => new { Name = x.Key, Count = x.Count() })
+            .MaxBy(x => x.Count);
                                 
                               
 
-        Console.WriteLine($"LastName: {mostPopularLastName.Name}, Amount: {mostPopularLastName.Count}");
-        
+        Console.WriteLine($"LastName: {mostPopularLastName.Name}, " +
+            $"Amount: {mostPopularLastName.Count}");
+
     }
 }

@@ -10,5 +10,13 @@
             Title = title;
             Description = description;
         }
+        public override bool Equals(object item)
+        {
+            if (item == null || item.GetType() == this.GetType()) return false;
+
+            Course check = (Course)item;
+
+            return check.Title == this.Title;
+        }
     }
 }
