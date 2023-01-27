@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.NetworkInformation;
-
-namespace Task_03
+﻿namespace Task_03
 {
     internal class University
     {      
@@ -18,29 +15,25 @@ namespace Task_03
             Rector = rector;
             Buildings = buildings;
         }       
-        public void AddEmployee(UniversityEmployee newEmployee, List<UniversityEmployee> employees) 
-        {
-            foreach (UniversityEmployee item in employees)
-            {
-                if (item.Equals(newEmployee))
-                {
-                    return;
-                }
-            }
-            
-            employees.Add(newEmployee);
-        }
-        public void AddBuilding(Building newBuilding, List<Building>buildings)
-        {
-            foreach (Building item in buildings)
-            {
-                if (item.Equals(newBuilding))
-                {
-                    return;
-                }
-            }
 
-            buildings.Add(newBuilding);
+        // оптыным путем было определено, что List.Contains все-таки использует метод Equals объекта,
+        // поэтому метод Equals был изменен, чтобы один и тот же человек с разной ролью мог быть добавлен в список
+        
+        public void AddEmployee(UniversityEmployee newEmployee) 
+        {
+            if(Employees.Contains(newEmployee))
+            {
+                return;
+            }             
+            Employees.Add(newEmployee);
+        }
+        public void AddBuilding(Building newBuilding)
+        {
+            if (Buildings.Contains(newBuilding))
+            {
+                return;
+            }
+            Buildings.Add(newBuilding);
         }
 
     }

@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace Task_03
+﻿namespace Task_03
 {
     internal abstract class UniversityEmployee
     {
@@ -17,13 +15,17 @@ namespace Task_03
 
         public abstract string GetOfficialDuties();
 
+        //Personnel Number is unique throughout the university for each employee,
+        //however each employee may have several roles (e.g. a Teacher and a Rector);
+        //In that case these objects are NOT regarded as Equal.
+        
         public override bool Equals(object item)
         {
-            if (item == null || item.GetType() == this.GetType()) return false;
+            if (item == null || item.GetType() != GetType()) return false;
             
             UniversityEmployee check = (UniversityEmployee)item;
 
-            return check.PersonnelNumber == this.PersonnelNumber;
+            return check.PersonnelNumber == PersonnelNumber;
         }
               
     }

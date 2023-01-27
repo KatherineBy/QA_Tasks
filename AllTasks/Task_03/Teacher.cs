@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Task_03
+﻿namespace Task_03
 {
     internal class Teacher : UniversityEmployee
     {
@@ -25,13 +23,5 @@ namespace Task_03
                 $"and an academic title: {AcademicTitle}";
         }
 
-        public override bool Equals(object item)
-        {
-            if (item == null || item.GetType() == this.GetType()) return false;
-
-            Teacher check = (Teacher)item;
-
-            return check.PersonnelNumber == this.PersonnelNumber;
-        }
     }
 }

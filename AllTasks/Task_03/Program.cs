@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using Task_03;
+﻿using Task_03;
 
 internal class Program
 {
@@ -32,7 +31,7 @@ internal class Program
             "Professor");
 
         var employee4 = new Teacher(
-           "N000000005",
+           "N000000003",
            "Oleg",
            "Dmitriyev",
            new("Higher Mathematics", "Studying complex calculations etc."),
@@ -46,7 +45,7 @@ internal class Program
             "Doctor", 
             "Professor");
        
-        List<UniversityEmployee> employeeList = new List<UniversityEmployee>
+        var employeeList = new List<UniversityEmployee>
         {
             employee1,
             employee2,
@@ -57,7 +56,7 @@ internal class Program
 
         //create buildings list
 
-        Building building1 = new(
+        var building1 = new Building(
             "Main Building", 
             "I000001",
             new ("Minsk", "Vaneeva", 27),
@@ -71,7 +70,7 @@ internal class Program
                 new(301, 3, "Classroom")
             });
 
-        Building building2 = new(
+        var building2 = new Building(
             "Academic Building N2", 
             "I000002",
             new("Minsk", "Vaneeva", 28),
@@ -85,7 +84,7 @@ internal class Program
                 new(302, 3, "Classroom")
             });
 
-        Building building3 = new(
+        var building3 = new Building(
             "Academic Building N3", 
             "I000003",
             new Address("Minsk", "Vaneeva", 30),
@@ -96,11 +95,9 @@ internal class Program
                 new(203, 2, "Classroom"),
                 new(204, 2, "Classroom"),
                 new(205, 2, "Laboratory")
-            });
-
+            });      
         
-        
-        List<Building> buildingList = new List<Building>
+        var buildingList = new List<Building>
        {
             building1,
             building2,
@@ -109,7 +106,7 @@ internal class Program
 
         //create University
 
-        University university = new(
+        var university = new University(
             rector,
             new LegalAddress("220-051", "Minsk", "Vaneeva", 27),
             employeeList,
@@ -119,7 +116,7 @@ internal class Program
 
         // 5.1 employyes with last name starts with X
 
-        string selectedLetter = "A";
+        var selectedLetter = "A";
         var employeesOnSelectedLetter = university.Employees
             .Where(x => x.LastName.StartsWith(selectedLetter))
             .ToList();
@@ -133,7 +130,7 @@ internal class Program
 
         // 5.2 teachers of X course
 
-        string selectedCourse = "Higher Mathematics";
+        var selectedCourse = "Higher Mathematics";
         var teachersOfSelectedCourse = university.Employees
             .OfType<Teacher>()
             .Where(x => x.Course.Title == selectedCourse)
@@ -162,7 +159,7 @@ internal class Program
 
         // 5.4 buildings with selected room.number
 
-        int selectedRoomNumber = 101;
+        var selectedRoomNumber = 101;
         var buildingsWithRoom = university.Buildings
             .SelectMany(x => x.Rooms,(x, y) => (Addr: x.Address, RoomNum: y.Number))
             .Where(x => x.RoomNum == selectedRoomNumber)
@@ -193,12 +190,30 @@ internal class Program
         var mostPopularLastName = university.Employees
             .GroupBy(x => x.LastName)
             .Select(x => new { Name = x.Key, Count = x.Count() })
-            .MaxBy(x => x.Count);
-                                
+            .MaxBy(x => x.Count);                              
                               
-
         Console.WriteLine($"LastName: {mostPopularLastName.Name}, " +
             $"Amount: {mostPopularLastName.Count}");
+
+        // temp tests for Task 4
+
+        var bseu = new University(
+            rector,
+            new LegalAddress("220-051", "Minsk", "Vaneeva", 15),
+            new(),
+            new());
+
+        var employee5 = new Teacher(
+           "N000000003", //same as rector's
+           "Anton",
+           "Antonov",
+           new("Higher Mathematics", "Studying complex calculations etc."),
+           "Doctor",
+           "Professor");
+
+        bseu.AddEmployee(employee5);
+        bseu.AddEmployee(rector);
+        bseu.AddEmployee(employee5);
 
     }
 }

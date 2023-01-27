@@ -12,11 +12,11 @@
         }
         public override bool Equals(object item)
         {
-            if (item == null || item.GetType() == this.GetType()) return false;
+            if (item == null || item is not Course) return false;
 
             Course check = (Course)item;
 
-            return check.Title == this.Title;
+            return check.Title == Title;
         }
     }
 }

@@ -16,16 +16,16 @@
 
         public override string ToString()
         {
-            return $"{this.Title}, {this.InventoryNumber}, {this.Address}";
+            return $"{Title}, {InventoryNumber}, {Address}";
         }
 
         public override bool Equals(object item)
         {
-            if (item == null || item.GetType() != typeof(Building)) return false;
+            if (item == null || item is not Building) return false;
             
             Building check = (Building)item;
 
-            return check.InventoryNumber == this.InventoryNumber;
+            return check.InventoryNumber == InventoryNumber;
         }
     }
 }

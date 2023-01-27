@@ -12,14 +12,14 @@
 
         public override string ToString()
         {
-            return $"{this.Index}, {this.City}, {this.Street}, {this.Number}";
+            return $"{Index}, {City}, {Street}, {Number}";
         }
 
         public override bool Equals(object item)
         {
             if (item == null) return false;
             
-            return base.Equals(item) && (item as LegalAddress)?.Index == this.Index;          
+            return base.Equals(item) && (item as LegalAddress)?.Index == Index;          
         }
     }
 }

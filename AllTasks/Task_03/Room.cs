@@ -43,7 +43,7 @@
 
         public override bool Equals(object item)
         {
-            if (item == null || item.GetType() == this.GetType()) return false;
+            if (item == null || item is not Room) return false;
             
             Room check = (Room)item;
             

@@ -29,19 +29,20 @@
 
         public override string ToString() 
         { 
-            return $"{this.City}, {this.Street}, {this.Number}";
+            return $"{City}, {Street}, {Number}";
         }
 
         public override bool Equals(object item) 
         {
-            if (item == null || item.GetType() != this.GetType()) return false;
-            
+            if (item == null || item.GetType() != GetType()) return false;
+            //GetType used, as the method is used further by derived class LegalAddress
+
             Address check = (Address)item;
             
             return 
-                check.City == this.City && 
-                check.Street == this.Street && 
-                check.Number == this.Number;    
+                check.City == City && 
+                check.Street == Street && 
+                check.Number == Number;    
         }
     }
 }
