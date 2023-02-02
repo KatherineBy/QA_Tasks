@@ -1,6 +1,6 @@
 ﻿namespace Task_03
 {
-    internal class University
+    public class University
     {      
         public Rector Rector { get; set; }
         public LegalAddress LegalAddress { get; set; }
@@ -15,10 +15,7 @@
             Rector = rector;
             Buildings = buildings;
         }       
-
-        // оптыным путем было определено, что List.Contains все-таки использует метод Equals объекта,
-        // поэтому метод Equals был изменен, чтобы один и тот же человек с разной ролью мог быть добавлен в список
-        
+                
         public void AddEmployee(UniversityEmployee newEmployee) 
         {
             if(Employees.Contains(newEmployee))

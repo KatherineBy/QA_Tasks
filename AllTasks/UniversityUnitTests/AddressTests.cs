@@ -27,10 +27,17 @@ namespace UniversityUnitTests
         }
 
         [TestMethod]
-        public void CheckNumberValidationInConstructorForAddressNegative()
+        public void CheckNumberValidationForAddressNegative()
         {
             var address1 = new Address("City", "Street", -1);
-            Assert.AreEqual(address1.Number, 0); //bad
+            Assert.AreEqual(0, address1.Number); //bad
+        }
+
+        [TestMethod]
+        public void CheckToStringForAddress() 
+        {
+            var address1 = new Address("City", "Street", 1);
+            Assert.AreEqual("City, Street, 1", address1.ToString());
         }
 
     }

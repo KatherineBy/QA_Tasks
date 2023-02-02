@@ -1,6 +1,6 @@
 ﻿namespace Task_03
 {
-    internal class LegalAddress: Address
+    public class LegalAddress: Address
     {
         public string Index { get; set; }
 

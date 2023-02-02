@@ -1,6 +1,6 @@
 ﻿namespace Task_03
 {
-    internal class Teacher : UniversityEmployee
+    public class Teacher : UniversityEmployee
     {
         public Course Course { get; set; }
         public string AcademicDegree { get; set; }

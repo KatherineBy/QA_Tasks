@@ -2,7 +2,7 @@
 
 namespace Task_03
 {
-    internal abstract class UniversityEmployee: IComparable
+    public abstract class UniversityEmployee: IComparable
     {
         private string _taxId;
         private string _firstName;

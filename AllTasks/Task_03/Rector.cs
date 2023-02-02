@@ -1,6 +1,6 @@
 ﻿namespace Task_03
 {
-    internal class Rector : UniversityEmployee
+    public class Rector : UniversityEmployee
     {
         public string AcademicDegree { get; set; }
         public string AcademicTitle { get; set; }

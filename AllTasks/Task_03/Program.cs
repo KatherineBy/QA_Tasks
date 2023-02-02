@@ -249,27 +249,12 @@ internal class Program
         {
             Console.WriteLine("{0} {1} {2}", x.LastName, x.FirstName, x.GetNameLength());
         }
+
+        var adr = new Address("aaa", "dddd", -1);
                 
 
-        /* temp tests for Task 4
-
-        var bseu = new University(
-            rector,
-            new LegalAddress("220-051", "Minsk", "Vaneeva", 15),
-            new(),
-            new());
-
-        var employee5 = new Teacher(
-           "N000000003", //same as rector's
-           "Anton",
-           "Antonov",
-           new("Higher Mathematics", "Studying complex calculations etc."),
-           "Doctor",
-           "Professor");
-
-        bseu.AddEmployee(employee5);
-        bseu.AddEmployee(rector);
-        bseu.AddEmployee(employee5);*/
+        
+       
 
     }
 }
