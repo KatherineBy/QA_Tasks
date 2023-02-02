@@ -1,6 +1,6 @@
 ﻿namespace Task_03
 {
-    internal class TaxIdComparerDescending: IComparer<UniversityEmployee>
+    public class TaxIdComparerDescending: IComparer<UniversityEmployee>
     {
         public int Compare(UniversityEmployee x, UniversityEmployee y)
         {

@@ -92,5 +92,56 @@ namespace UniversityUnitTests
             Assert.IsFalse(teacher.Equals(rector));
         }
 
+        [TestMethod]
+        public void CheckCompareToForUniversityEmployeesPositive()
+        {
+            var teacher1 = new Teacher(
+               "N1",
+               "Anton",
+               "Antonov",
+               new("History", "History"),
+               "Doctor",
+               "Professor");
+
+            var teacher2 = new Teacher(
+               "N2",
+               "Pavel",
+               "Pavlov",
+               new("History", "History"),
+               "Doctor",
+               "Professor");
+
+            Assert.AreEqual(1, teacher1.CompareTo(teacher2));
+        }
+
+        [TestMethod]
+        public void CheckTaxIdComparerForUniversityEmployeesPositive()
+        {
+            var teacher1 = new Teacher(
+               "N1",
+               "Anton",
+               "Antonov",
+               new("History", "History"),
+               "Doctor",
+               "Professor");
+
+            var teacher2 = new Teacher(
+               "N2",
+               "Pavel",
+               "Pavlov",
+               new("History", "History"),
+               "Doctor",
+               "Professor");
+
+            var teachers = new List<UniversityEmployee>
+            {
+            teacher2,
+            teacher1
+            };
+
+            teachers.Sort(new TaxIdComparerDescending());
+            Assert.AreEqual(teacher1, teachers[0]);
+        }
+
     }
 }
