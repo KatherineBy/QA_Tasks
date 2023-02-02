@@ -1,6 +1,6 @@
 ﻿namespace Task_03
 {
-    internal class Address
+    public class Address
     {
         public string City { get; set; }
         public string Street { get; set; }

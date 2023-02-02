@@ -1,6 +1,6 @@
 ﻿namespace Task_03
 {
-    internal abstract class Asset
+    public abstract class Asset
     {
         public string Title { get; set; }
 

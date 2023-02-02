@@ -6,9 +6,9 @@
         public string AcademicDegree { get; set; }
         public string AcademicTitle { get; set; }
 
-        public Teacher(string personnelNumber, string firstName, string lastName, Course course,
+        public Teacher(string taxId, string firstName, string lastName, Course course,
             string academicDegree, string academicTitle) :
-            base(personnelNumber, firstName, lastName)
+            base(taxId, firstName, lastName)
         {
             Course = course;
             AcademicDegree = academicDegree;

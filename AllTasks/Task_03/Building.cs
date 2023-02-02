@@ -1,6 +1,6 @@
 ﻿namespace Task_03
 {
-    internal class Building: Asset
+    public class Building: Asset
     {
         public string InventoryNumber { get; set; }
         public Address Address { get; set; }

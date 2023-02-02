@@ -1,6 +1,6 @@
 ﻿namespace Task_03
 {
-    internal class Room
+    public class Room
     {
         private int _number;
         public int Number

@@ -1,4 +1,5 @@
-﻿using Task_03;
+﻿using System.Collections.Immutable;
+using Task_03;
 
 internal class Program
 {
@@ -7,21 +8,21 @@ internal class Program
         //create employees list
 
         var employee1 = new Teacher(
-           "N000000001", 
+            "N000000001",
+            "Dmitry",
+            "Dmitriyev",
+            new("History", "Studying history etc."),
+            "Master",
+            "Assistant professor");
+
+        var employee2 = new Teacher(
+           "N000000002", 
            "Vasiliy", 
-           "Vasiliyev", 
+           "Vasiliye", 
            new("Higher Mathematics", "Studying complex calculations etc."), 
            "Doctor", 
            "Professor");
-
-        var employee2 = new Teacher(
-            "N000000002", 
-            "Dmitry", 
-            "Dmitriyev", 
-            new("History", "Studying history etc."),
-            "Master", 
-            "Assistant professor");
-
+  
         var employee3 = new Teacher(
             "N000000004",
             "Ekaterina",
@@ -123,8 +124,8 @@ internal class Program
 
         foreach(var item in employeesOnSelectedLetter) 
         {
-            Console.WriteLine("Employee {0} {1}, personnel number {2}", 
-                item.LastName, item.FirstName, item.PersonnelNumber);
+            Console.WriteLine("Employee {0} {1}, Tax ID {2}", 
+                item.LastName, item.FirstName, item.TaxId);
         }
         Console.WriteLine("5.2 --------------------------------------------------------------");
 
@@ -139,20 +140,20 @@ internal class Program
 
         foreach (var item in teachersOfSelectedCourse)
         {
-            Console.WriteLine("Employee {0} {1}, personnel number {2}, course {3}",
-                item.LastName, item.FirstName, item.PersonnelNumber, item.Course.Title);
+            Console.WriteLine("Employee {0} {1}, Tax ID {2}, course {3}",
+                item.LastName, item.FirstName, item.TaxId, item.Course.Title);
         }
         Console.WriteLine("5.3 --------------------------------------------------------------");
 
         // 5.3 personnel number and professional duties 
 
         var persNumberAndDuties = university.Employees
-            .Select(x => (num: x.PersonnelNumber, duty: x.GetOfficialDuties()))
+            .Select(x => (num: x.TaxId, duty: x.GetOfficialDuties()))
             .ToList();
 
         foreach (var item in persNumberAndDuties)
         {
-            Console.WriteLine("Personnel Number {0}, official duties: {1}",
+            Console.WriteLine("TaxId {0}, official duties: {1}",
                 item.num, item.duty);
         }
         Console.WriteLine("5.4 --------------------------------------------------------------");
@@ -194,8 +195,63 @@ internal class Program
                               
         Console.WriteLine($"LastName: {mostPopularLastName.Name}, " +
             $"Amount: {mostPopularLastName.Count}");
+                
+        
+        Console.WriteLine("6.1 --------------------------------------------------------------");
 
-        // temp tests for Task 4
+        var bseu = new University(
+            rector,
+            new LegalAddress("220-051", "Minsk", "Vaneeva", 15),
+            new(),
+            new());
+
+        var employee6 = new Teacher(
+          "N000000006",
+          "Maria",
+          "Mariu",
+          new("Higher Mathematics", "Studying complex calculations etc."),
+          "Doctor",
+          "Professor");
+
+        try 
+        {
+            bseu.AddEmployee(employee6);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        Console.WriteLine("6.3(a) -----------------------------------------------------------");
+
+        university.Employees.Sort();
+        university.Employees.Reverse();
+        foreach (var x in university.Employees)
+        {
+            Console.WriteLine("{0} {1} {2}", x.LastName, x.FirstName, x.GetNameLength());
+        }
+
+        Console.WriteLine("6.3(b) -----------------------------------------------------------");
+
+        university.Employees.Sort(new TaxIdComparerDescending());
+        foreach (var x in university.Employees)
+        {
+            Console.WriteLine("{0} {1} {2}", x.LastName, x.FirstName, x.GetNameLength());
+        }
+
+        Console.WriteLine("6.3(c) -----------------------------------------------------------");
+
+        var sortedEmployees = university.Employees
+            .OrderByDescending(x => x.GetNameLength())
+	        .ToList();
+
+        foreach (var x in sortedEmployees)
+        {
+            Console.WriteLine("{0} {1} {2}", x.LastName, x.FirstName, x.GetNameLength());
+        }
+                
+
+        /* temp tests for Task 4
 
         var bseu = new University(
             rector,
@@ -213,7 +269,7 @@ internal class Program
 
         bseu.AddEmployee(employee5);
         bseu.AddEmployee(rector);
-        bseu.AddEmployee(employee5);
+        bseu.AddEmployee(employee5);*/
 
     }
 }

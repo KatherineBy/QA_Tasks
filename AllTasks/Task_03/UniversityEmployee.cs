@@ -1,14 +1,68 @@
-﻿namespace Task_03
-{
-    internal abstract class UniversityEmployee
-    {
-        public string PersonnelNumber { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+﻿using System;
 
-        public UniversityEmployee (string personnelNumber, string firstName, string lastName)
+namespace Task_03
+{
+    internal abstract class UniversityEmployee: IComparable
+    {
+        private string _taxId;
+        private string _firstName;
+        private string _lastName;
+        public string TaxId
         {
-            PersonnelNumber = personnelNumber;
+            get
+            {
+                return _taxId;
+            }
+            set
+            {
+                CheckTaxId(value);
+                _taxId = value;
+            }
+        }
+        public string FirstName
+        {
+            get
+            {
+                return _firstName;
+            }
+            set
+            {
+                CheckNameLength(value, _lastName);
+                _firstName = value;
+            }
+        }
+        public string LastName
+        {
+            get
+            {
+                return _lastName;
+            }
+            set
+            {
+                CheckNameLength(_firstName, value);
+                _lastName = value;
+            }
+        }
+        private void CheckNameLength(string fname, string lname)
+        {
+            if (lname == null) { lname = ""; }
+            if (fname.Length + lname.Length > 15)
+            {       
+                throw new ArgumentException("Name is too long");
+            }
+        }
+
+        private void CheckTaxId(string id)
+        {
+            if (id.Substring(0, 1) != "N")
+            {
+                throw new ArgumentException("ID must strat with 'N' ");
+            }
+        }
+
+        public UniversityEmployee (string taxId, string firstName, string lastName)
+        {
+            TaxId = taxId;
             FirstName = firstName;
             LastName = lastName;
         }
@@ -25,8 +79,19 @@
             
             UniversityEmployee check = (UniversityEmployee)item;
 
-            return check.PersonnelNumber == PersonnelNumber;
+            return check.TaxId == TaxId;
         }
-              
+        public int GetNameLength()
+        {
+            return (this.FirstName.Length + this.LastName.Length);
+        }
+        
+
+        public int CompareTo(object? obj)
+        {
+            return this.GetNameLength().CompareTo((obj as UniversityEmployee)?.GetNameLength());
+        }
+
+
     }
 }
