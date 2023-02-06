@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_01", "Task_01\Task_01.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_02", "Task_02\Task_02.csproj", "{31338C40-9454-48AF-B317-8A89528122AA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_03", "Task_03\Task_03.csproj", "{EF8ED157-6E5F-4CE5-95DC-28C82BF3769B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_06-07", "Task_03\Task_06-07.csproj", "{EF8ED157-6E5F-4CE5-95DC-28C82BF3769B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityUnitTests", "UniversityUnitTests\UniversityUnitTests.csproj", "{CE574FB8-60BF-4481-AE4D-5883C9216A2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityUnitTests", "UniversityUnitTests\UniversityUnitTests.csproj", "{CE574FB8-60BF-4481-AE4D-5883C9216A2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
