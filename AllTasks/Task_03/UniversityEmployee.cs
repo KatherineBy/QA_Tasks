@@ -48,7 +48,7 @@ namespace Task_03
             if (lname == null) { lname = ""; }
             if (fname.Length + lname.Length > 15)
             {       
-                throw new ArgumentException("Name is too long");
+                throw new ArgumentException("Name length should be less than 15");
             }
         }
 

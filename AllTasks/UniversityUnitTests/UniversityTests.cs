@@ -8,20 +8,20 @@ namespace UniversityUnitTests
         [TestMethod]
         public void CheckAddEmployeeForUniversityPositive()
         {
-            Rector rector = new(
+            var rector = new Rector(
                 "N1",
                 "Anton",
                 "Antonov",
                 "Doctor",
                 "Professor");
 
-            University university = new(
+            var university = new University(
                 rector,
                 new LegalAddress("220-051", "Minsk", "Vaneeva", 15),
                 new List<UniversityEmployee> { rector },
                 new());
 
-            Teacher employee1 = new(
+            var employee1 = new Teacher(
                "N2",
                "Maxim",
                "Maximov",
@@ -38,14 +38,14 @@ namespace UniversityUnitTests
          "An duplicate employee was inappropriately allowed.")]
         public void CheckAddEmployeeForUniversityNegative()
         {
-            Rector rector = new(
+            var rector = new Rector(
                 "N1",
                 "Anton",
                 "Antonov",
                 "Doctor",
                 "Professor");
 
-            University university = new(
+            var university = new University(
                 rector,
                 new LegalAddress("220-051", "Minsk", "Vaneeva", 15),
                 new List<UniversityEmployee> { rector },
@@ -58,20 +58,20 @@ namespace UniversityUnitTests
         [TestMethod]
         public void ChechAddEmployeeWithSameIdButDifRolesPositive()
         {
-            Rector rector = new(
+            var rector = new Rector(
                 "N1",
                 "Anton",
                 "Antonov",
                 "Doctor",
                 "Professor");
 
-            University university = new(
+            var university = new University(
                 rector,
                 new LegalAddress("220-051", "Minsk", "Vaneeva", 15),
                 new List<UniversityEmployee> { rector },
                 new());
 
-            Teacher employee2 = new(
+            var employee2 = new Teacher(
                 "N1", //same as rector's
                 "Anton",
                 "Antonov",
@@ -86,13 +86,13 @@ namespace UniversityUnitTests
         [TestMethod]
         public void CheckAddBuildingForUniversityPositive()
         {
-            University university = new(
+            var university = new University(
                 new Rector("N1", "Anton", "Antonov", "Math", "Calculations"),
                 new LegalAddress("220-051", "Minsk", "Vaneeva", 15),
                 new(),
                 new());
 
-            Building building1 = new("Building", "11111", new("City", "Street", 1), new());
+            var building1 = new Building("Building", "11111", new("City", "Street", 1), new());
 
             university.AddBuilding(building1);
             Assert.AreEqual(university.Buildings[0], building1);

@@ -18,7 +18,7 @@ internal class Program
         var employee2 = new Teacher(
            "N000000002", 
            "Vasiliy", 
-           "Vasiliye", 
+           "Vasiliyv", 
            new("Higher Mathematics", "Studying complex calculations etc."), 
            "Doctor", 
            "Professor");
@@ -195,33 +195,7 @@ internal class Program
                               
         Console.WriteLine($"LastName: {mostPopularLastName.Name}, " +
             $"Amount: {mostPopularLastName.Count}");
-                
         
-        Console.WriteLine("6.1 --------------------------------------------------------------");
-
-        var bseu = new University(
-            rector,
-            new LegalAddress("220-051", "Minsk", "Vaneeva", 15),
-            new(),
-            new());
-
-        var employee6 = new Teacher(
-          "N000000006",
-          "Maria",
-          "Mariu",
-          new("Higher Mathematics", "Studying complex calculations etc."),
-          "Doctor",
-          "Professor");
-
-        try 
-        {
-            bseu.AddEmployee(employee6);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-
         Console.WriteLine("6.3(a) -----------------------------------------------------------");
 
         university.Employees.Sort();
@@ -248,13 +222,6 @@ internal class Program
         foreach (var x in sortedEmployees)
         {
             Console.WriteLine("{0} {1} {2}", x.LastName, x.FirstName, x.GetNameLength());
-        }
-
-        var adr = new Address("aaa", "dddd", -1);
-                
-
-        
-       
-
+        }                               
     }
 }
